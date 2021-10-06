@@ -1,12 +1,13 @@
 #include <iostream>
 #include <sstream>
+#include <iomanip>
 #include <boost/uuid/detail/sha1.hpp>
 
 std::string hexstr(u_int * d)
 {
   std::stringstream s;
   for (std::size_t i=0; i<5; i++)
-    s << std::hex << d[i];
+    s << std::setfill ('0') << std::setw(sizeof(u_int)*2) << std::hex << d[i];
   return s.str();
 }
 
